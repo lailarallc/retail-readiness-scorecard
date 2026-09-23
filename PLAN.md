@@ -172,3 +172,9 @@ exactly. All real issues are in the presentation layer.
       (was "Ready" / "Green · 75%").
 
 **Next review:** 2026-08-30 (post-fix; project otherwise stable).
+
+### 2026-09-23 — Audit (health check only)
+- **Findings:** 0 critical, 5 important, 4 nice-to-have
+- **Top concerns:** Local clone is parked on the already-merged client-mode-2026-08 branch with local main 13 commits behind origin/main, and HANDOFF/PLAN never recorded the Aug client-mode/parity/CI work (last review's 2026-08-30 date is overdue; cross-browser PDF check still open since May). client_mode.py preflight crashes with TypeError on non-string JSON values (list/dict) instead of producing a Data Readiness Report. README drifts from code (PDF filename, dist "gitignored" but tracked and stale since 2026-07-31). Scoring engine, JS/Python parity, and security are clean; 59 vitest + 3 parity + 14 client-mode tests pass.
+- **Action taken:** Audit only — no fixes this session
+- **Next review:** 2026-12-22
