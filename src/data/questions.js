@@ -199,7 +199,7 @@ export const QUESTIONS = [
     retailers: ['walmart', 'costco', 'wholeFoods'],
     order: 1,
     text: {
-      walmart: 'Is your current OTIF rate at or above Walmart\'s 98% composite threshold — measuring on-time and in-full at the PO level?',
+      walmart: 'Does your delivery performance meet the Walmart OTIF targets that apply to you: on-time (90% arrival by MABD if prepaid, or 98% ready for pickup if collect) and 95% in-full per category?',
       costco: 'Do you have a consistent documented history of on-time delivery within appointment windows — and can you produce that history for a Costco buyer?',
       wholeFoods: 'Do you actively track your on-time delivery performance — and do you have documented history you can share with a Whole Foods buyer?',
     },
@@ -207,7 +207,7 @@ export const QUESTIONS = [
       {
         value: 'yes',
         label: {
-          walmart: 'Yes — consistently at or above 98%',
+          walmart: 'Yes — consistently at or above the targets that apply to us',
           costco: 'Yes — consistent history, documented and on file',
           wholeFoods: 'Yes — we track OTIF and have documented history',
         },
@@ -215,7 +215,7 @@ export const QUESTIONS = [
       {
         value: 'partial',
         label: {
-          walmart: 'Partial — between 93–97%, working toward 98%',
+          walmart: 'Partial — short on a target that applies to us, but within 5 points',
           costco: 'Partial — mostly on-time but history is incomplete or inconsistent',
           wholeFoods: 'Partial — we track it informally but documentation is limited',
         },
@@ -223,7 +223,7 @@ export const QUESTIONS = [
       {
         value: 'no',
         label: {
-          walmart: 'No — below 93% or we don\'t track OTIF',
+          walmart: 'No — more than 5 points short on a target that applies to us, or we don\'t track them',
           costco: 'No — delivery history is undocumented or shows consistent failures',
           wholeFoods: 'No — we don\'t track on-time delivery performance',
         },

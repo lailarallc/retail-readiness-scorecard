@@ -16,7 +16,8 @@
 
 ### OTIF
 - **Threshold:** 98% composite. Sub-components: On-Time (prepaid/vendor-managed) = 90%; In-Full = 95%; On-Time (collect/Walmart-managed) = 98%. Suppliers are held against sub-metrics independently. [High]
-- **Penalty:** 3% of COGS per non-compliant PO. Binary at PO level. Fines issued monthly, ~4-5 weeks post-month-end. [High]
+- **Correction (2026-09-24):** the "98% composite" above is outdated. Current rule (since 2024-02-01, SPS Commerce): on-time 90% for prepaid (arrival by MABD) or 98% for collect (ready for pickup), and 95% in-full per category. Suppliers are measured on the on-time target that matches how they ship.
+- **Penalty:** 3% of COGS on non-compliant cases (corrected 2026-09-24; originally recorded as "per non-compliant PO. Binary at PO level."). Fines issued monthly, ~4-5 weeks post-month-end. [High]
 - **Tracking:** Per PO / per shipment. Disputes via Retail Link within defined window. [High]
 - **Note:** Thresholds can vary by category — verify in Retail Link for specific category.
 

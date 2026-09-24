@@ -31,7 +31,7 @@ FAILURES.md as relevant.
 
 ## Voice and standards
 
-- Question language: plain, direct, practitioner-fluent. Reference actual retailer thresholds (Walmart's 98% OTIF, not "a high threshold"). Sound like someone who has done this, not like a generic checklist.
+- Question language: plain, direct, practitioner-fluent. Reference actual retailer thresholds (Walmart's 90% prepaid / 98% collect on-time and 95% in-full OTIF targets, not "a high threshold"). Sound like someone who has done this, not like a generic checklist.
 - Results/PDF language: Economist style — sober, declarative, specific. "EDI capability is missing. Without it, Walmart will not process your purchase orders." Not "you may want to consider EDI solutions."
 - No marketing voice or consultant filler ("leverage," "synergy," "best-in-class," "unlock," "drive value")
 - No hedging that softens a real finding. Red means Red.

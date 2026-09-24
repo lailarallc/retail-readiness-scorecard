@@ -71,7 +71,8 @@ describe('scoreDimension — fulfillment', () => {
     const result = scoreDimension('fulfillment', { ff_otif_rate: 'no' }, 'walmart');
     expect(result.status).toBe('red');
     expect(result.numeric).toBe(0);
-    expect(result.findings.some(f => f.includes('98%'))).toBe(true);
+    expect(result.findings.some(f => f.includes('90%') && f.includes('95%'))).toBe(true);
+    expect(result.findings.some(f => f.includes('non-compliant cases'))).toBe(true);
   });
 
   it('returns red with chargeback finding for costco otif no', () => {

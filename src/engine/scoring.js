@@ -203,7 +203,7 @@ function scoreFulfillment(answers, retailer) {
   const retailerData = RETAILERS[retailer];
 
   const otifFindingByRetailer = {
-    walmart: 'Current OTIF rate below 98% composite threshold — subject to 3% of COGS penalty per non-compliant PO.',
+    walmart: 'Delivery performance misses the Walmart OTIF targets that apply to you (on-time 90% if prepaid or 98% ready for pickup if collect; 95% in-full) — subject to a 3% of COGS penalty on non-compliant cases.',
     costco: 'Delivery appointment compliance inconsistent — chargeback exposure.',
     wholeFoods: 'On-time delivery history inconsistent or undocumented.',
   };
@@ -220,7 +220,7 @@ function scoreFulfillment(answers, retailer) {
   // ff_label_compliant removed from question bank (covered by edi_label_compliant).
   // Max points: Costco = 4 (otif 3 + thermal 1), others = 3 (otif only).
   const otifPartialFindingByRetailer = {
-    walmart: 'OTIF between 93–97% — below Walmart\'s 98% composite threshold; expect OTIF fines until resolved.',
+    walmart: 'Within 5 points of the Walmart OTIF targets that apply to you (on-time 90% if prepaid or 98% ready for pickup if collect; 95% in-full) but short on at least one; expect OTIF fines until resolved.',
     costco: 'Delivery history incomplete or inconsistent — a Costco buyer will ask to see it.',
     wholeFoods: 'On-time delivery tracked informally; documentation is limited.',
   };

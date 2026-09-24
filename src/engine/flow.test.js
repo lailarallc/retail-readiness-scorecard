@@ -190,9 +190,13 @@ describe('isComplete', () => {
 describe('retailer-specific question text (against the real question bank)', () => {
   const otif = QUESTIONS.find(q => q.id === 'ff_otif_rate');
 
-  it('the real Walmart OTIF question references the 98% threshold', () => {
+  it('the real Walmart OTIF question references the current prepaid, collect, and in-full targets', () => {
     expect(otif).toBeDefined();
-    expect(getQuestionText(otif, 'walmart')).toContain('98%');
+    const text = getQuestionText(otif, 'walmart');
+    expect(text).toContain('90%');
+    expect(text).toContain('98%');
+    expect(text).toContain('95%');
+    expect(text).not.toMatch(/composite/i);
   });
 
   it('the real Costco OTIF question does not reference a percentage', () => {

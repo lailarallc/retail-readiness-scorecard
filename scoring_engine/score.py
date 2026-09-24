@@ -193,7 +193,7 @@ def score_fulfillment(answers, retailer):
     findings = []
     thresholds = FULFILLMENT_THRESHOLDS[retailer]
     otif_finding = {
-        'walmart': 'Current OTIF rate below 98% composite threshold — 3% of COGS penalty per PO.',
+        'walmart': 'Delivery performance misses the Walmart OTIF targets that apply (90% on-time prepaid or 98% collect-ready; 95% in-full) — 3% of COGS penalty on non-compliant cases.',
         'costco': 'Delivery appointment compliance inconsistent — chargeback exposure.',
         'wholeFoods': 'On-time delivery history inconsistent or undocumented.',
     }
