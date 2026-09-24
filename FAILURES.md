@@ -98,3 +98,17 @@ quarto" or "scope, scrollytelling, decoration"]
 **Status:** Resolved
 
 **Tags:** file-size, jspdf, chart-js, svg, vite-singlefile
+
+---
+
+### 2026-09-24 — Bash heredoc into Python mangled em-dashes; LF-only match missed CRLF files
+
+**Attempted:** Bulk text replacement (OTIF question, findings, tests) with a Python script piped through a Bash heredoc on Windows, matching strings written with `\n` line breaks.
+
+**Why it didn't work:** Two separate failures. (1) The heredoc passed through the Windows console code page, so every `—` in the match strings arrived garbled and the exact-count check failed on the first file. (2) After fixing that, `src/engine/flow.test.js` is CRLF, so a multi-line match written with `\n` found 0 occurrences. Both were caught by the `count == 1` assert before any file was written.
+
+**What we tried instead:** Wrote the script to a UTF-8 file in the scratchpad, ran it with `PYTHONUTF8=1`, and converted match/replacement text to `\r\n` when the target file contains CRLF. Kept the "assert every match before writing any file" pattern — it's why neither failure touched the repo.
+
+**Status:** Resolved
+
+**Tags:** windows, encoding, utf-8, heredoc, crlf, line-endings, bulk-edit

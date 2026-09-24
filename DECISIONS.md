@@ -85,9 +85,20 @@ Each entry:
 - **Scope:** `src/main.js` boot block.
 - **Do not:** Do not remove the HMR guard or move event listener registration outside it. Any re-execution of the boot block without the guard will stack listeners.
 
+### 2026-09-24 — Re-copy the build to lailara-website after every release; the Pages deploy is not the public page
+- **Why:** `lailarallc.com/scorecard` embeds `lailara-website/site/public/tools/retail-readiness-scorecard.html` (`?embedded&gatepdf`), a hand-copied build. Pushing this repo deploys only `retail-readiness-scorecard.pages.dev`. On 2026-09-24 the public copy was found 2 fixes behind (last copied 2026-07-08) after this repo's deploy had gone green.
+- **Scope:** Every release of `dist/retail-readiness-scorecard.html`.
+- **Do not:** Do not treat a green deploy here as "live for prospects". Verify `lailarallc.com/tools/retail-readiness-scorecard.html` contains the change. Before copying, confirm lailara-website has nothing else undeployed (last successful deploy SHA = HEAD), and keep the `scorecard-request-pdf` / `scorecard-proceed-pdf` postMessage contract intact.
+
 ## Writing & Voice
 
 [Voice, style, terminology decisions specific to this project]
+
+### 2026-09-24 — Score Walmart OTIF against the targets that apply to the supplier, not the retired 98% composite
+- **Why:** Walmart replaced the 98% composite on 2024-02-01 (SPS Commerce): on-time 90% for prepaid (arrival by MABD) or 98% for collect (ready for pickup), and 95% in-full per category. A supplier ships prepaid or collect, not both, so asking about all three made an honest "yes" impossible for most suppliers. Partial = short on an applicable target but within 5 points (preserves the old 93–97 vs 98 band). Rejected: listing all three targets as required (user review, 2026-09-24).
+- **Scope:** `ff_otif_rate` Walmart text, labels, findings in `src/data/questions.js`, `src/engine/scoring.js`, `scoring_engine/score.py`, `scoring_engine/retailers/walmart.yaml`, `src/data/retailers.js`.
+- **Do not:** Do not reintroduce "98% composite" or a single blended OTIF %. Do not state the fine as "per PO" — it is "3% of COGS on non-compliant cases", matching the-question-engine q13. Change the wording in all five files above together.
+
 
 ---
 

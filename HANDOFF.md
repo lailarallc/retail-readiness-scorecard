@@ -88,3 +88,15 @@ work.
 **Next:** Open `dist/retail-readiness-scorecard.html` locally in Chrome → run Walmart assessment end-to-end → Export PDF → verify layout and fonts. Repeat in Safari, Firefox, Edge. Fix brand mark color if off. Arc fully done when browsers pass.
 
 ---
+
+## 2026-09-24 18:52
+
+**Started from:** Later #1 in `the-question-engine/HANDOFF.md` — Walmart OTIF question scored users against the retired "98% composite".
+
+**Did:** `f78e4b7` — Walmart question/labels/findings now ask about the targets that apply to the supplier (on-time 90% by MABD if prepaid, or 98% ready for pickup if collect; 95% in-full per category); penalty corrected to "3% of COGS on non-compliant cases" (JS, Python, YAML, retailers.js, tests, CLAUDE.md voice example, research-doc correction note; dist rebuilt). Scoring math unchanged. Pushed; all 4 CI runs green. Found `lailarallc.com/scorecard` embeds a hand-copied build in `lailara-website` (stale since 2026-07-08, also missing the 07-31 C2 fix) — refreshed in `lailara-website` `38fbde7`, deployed, verified live by clicking through Walmart.
+
+**State:** Clean, pushed. 59/59 JS + 17/17 Python tests pass. Pages deploy and lailarallc.com/scorecard both serve the new build. No tunnels opened.
+
+**Next:** Nothing open in this repo. After any future scorecard release, re-copy `dist/retail-readiness-scorecard.html` to `lailara-website/site/public/tools/` — nothing syncs it (tracked as Later #14 in the-question-engine). Blog post `retail-readiness-scorecard-cpg` still quotes Walmart 98% (Later #4 there).
+
+---
