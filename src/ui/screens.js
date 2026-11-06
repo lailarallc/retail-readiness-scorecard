@@ -52,15 +52,15 @@ export function renderIntro() {
     <h1 class="screen-title">Are you ready for the buyer's call?</h1>
     <p class="screen-subtitle">
       A launch-readiness diagnostic for specialty food brands heading into Walmart, Costco,
-      or Whole Foods. Answer 12–18 questions and get a Red / Yellow / Green scorecard across
-      eight operational dimensions — plus a one-page PDF showing which launch requirements
+      or Whole Foods. Answer 12-18 questions and get a Red / Yellow / Green scorecard across
+      eight operational dimensions, plus a one-page PDF showing which launch requirements
       you meet, which you don't, and what to fix first.
     </p>
     <div style="margin-bottom: 20px;">
       <button class="btn btn-primary" data-action="start">Start Assessment</button>
     </div>
     <p style="font-size: 13px; color: var(--text-secondary);">
-      Takes 5–10 minutes. No sign-up required. All responses stay in your browser.
+      Takes 5-10 minutes. No sign-up required. All responses stay in your browser.
     </p>
   `;
 }
@@ -103,8 +103,8 @@ export function renderRetailerSelect(selectedRetailer) {
     <div class="section-label">Step 1 of 3</div>
     <h1 class="screen-title">Which retailer are you assessing for?</h1>
     <p class="screen-subtitle">
-      Each retailer has distinct requirements. Select the one you're targeting —
-      you can run this assessment again for others.
+      Each retailer has distinct requirements. Select the one you're targeting.
+      You can run this assessment again for others.
     </p>
     <ul class="options-list" aria-label="Retailer options">
       ${options}
@@ -124,7 +124,7 @@ export function renderBrandName(brandName, retailer) {
   const retailerLabel = RETAILERS[retailer]?.name ?? '';
 
   return `
-    ${brandMark(retailerLabel ? `Readiness Assessment — ${retailerLabel}` : '')}
+    ${brandMark(retailerLabel ? `Readiness Assessment: ${retailerLabel}` : '')}
     <button class="back-link" data-action="back">← Back</button>
     <div class="section-label">Step 2 of 3</div>
     <h1 class="screen-title">What's your brand name?</h1>
@@ -241,12 +241,12 @@ export function renderResults(brandName, retailer, scores) {
     : `
       <p class="callout-card__blockers-heading">Top Priorities</p>
       <p class="callout-card__blocker-text" style="margin: 4px 0 0;">
-        Every dimension meets the bar — no blocking gaps identified.
+        Every dimension meets the bar: no blocking gaps identified.
       </p>`;
 
   const calloutCard = `
     <div class="callout-card" role="region" aria-label="Overall verdict">
-      <p class="callout-card__label">Lailara — Retail Readiness Scorecard</p>
+      <p class="callout-card__label">Lailara: Retail Readiness Scorecard</p>
       <p class="callout-card__verdict">${esc(verdict)}</p>
       <p class="callout-card__brand">${esc(brandName)} · ${esc(retailerLabel)}</p>
 
@@ -266,7 +266,7 @@ export function renderResults(brandName, retailer, scores) {
       </div>
       <p style="font-size: 11px; color: var(--text-secondary); font-style: italic; margin-top: 6px; padding: 0 4px;">
         Scores weighted by retailer requirement severity.
-        Red &lt;30 · Yellow 30–69 · Green ≥70. Fulfillment thresholds vary by retailer.
+        Red &lt;30 · Yellow 30-69 · Green ≥70. Fulfillment thresholds vary by retailer.
         A launch-blocking gap (e.g. missing FSMA 204, non-compliant labels, direct-thermal printing)
         can cap or fail a dimension regardless of its score.
       </p>
@@ -291,7 +291,7 @@ export function renderResults(brandName, retailer, scores) {
     const label = DIMENSION_LABELS[dim] ?? dim;
     const findingItems = (s.findings ?? []).map(f => `<li>${esc(f)}</li>`).join('');
     const hardGateNote = s.hardGate
-      ? `<p style="font-size:12px;color:var(--status-red);font-weight:600;margin-top:8px;">⚠ Hard gate — no conditional path forward without resolving this.</p>`
+      ? `<p style="font-size:12px;color:var(--status-red);font-weight:600;margin-top:8px;">⚠ Hard gate: no conditional path forward without resolving this.</p>`
       : '';
 
     return `
@@ -367,7 +367,7 @@ export function renderResults(brandName, retailer, scores) {
       <div class="results-section" style="margin-top: 32px;">
         <h2 class="results-section-title">Looking Good</h2>
         <p style="font-size: 15px; color: var(--text-secondary); margin-bottom: 12px;">
-          No Red dimensions — you're ahead of most brands at this stage. If you want a second
+          No Red dimensions. You're ahead of most brands at this stage. If you want a second
           opinion on the Yellows or help tightening the gaps before the buyer's call:
         </p>
         <a href="${LAILARA_BASE}/contact" target="_blank" rel="noopener"
@@ -390,7 +390,7 @@ export function renderResults(brandName, retailer, scores) {
   `;
 
   return `
-    ${brandMark(`${retailerLabel} Readiness — ${brandName}`)}
+    ${brandMark(`${retailerLabel} Readiness: ${brandName}`)}
     <div class="section-label">Assessment complete</div>
     <h1 class="screen-title">${esc(verdict)}</h1>
     ${calloutCard}

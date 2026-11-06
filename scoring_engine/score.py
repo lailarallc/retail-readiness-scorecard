@@ -367,7 +367,7 @@ def get_overall_verdict(scores, retailer):
                 continue
             max_w = 4 if (d == 'compliance' and retailer != 'wholeFoods') else REMEDIATION_WEEKS[d]['max']
             sum_max += max_w
-        timeline = f'Estimated {sum_min}–{sum_max} weeks to close these gaps.'
+        timeline = f'Estimated {sum_min}-{sum_max} weeks to close these gaps.'
 
     return {'verdict': verdict, 'timeline': timeline, 'overallStatus': overall_status}
 

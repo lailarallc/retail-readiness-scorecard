@@ -26,14 +26,14 @@ export const QUESTIONS = [
     retailers: ['walmart', 'costco', 'wholeFoods'],
     order: 1,
     text: {
-      walmart: 'Are all your GTINs valid and registered in the GS1 registry — confirmed, not assumed?',
-      costco: 'Are all your GTINs valid and registered in the GS1 registry — confirmed, not assumed?',
-      wholeFoods: 'Are all your GTINs valid and registered in the GS1 registry — confirmed, not assumed?',
+      walmart: 'Are all your GTINs valid and registered in the GS1 registry, confirmed, not assumed?',
+      costco: 'Are all your GTINs valid and registered in the GS1 registry, confirmed, not assumed?',
+      wholeFoods: 'Are all your GTINs valid and registered in the GS1 registry, confirmed, not assumed?',
     },
     options: [
-      { value: 'yes', label: { default: 'Yes — all GTINs verified in the GS1 registry' } },
-      { value: 'partial', label: { default: 'Partially — some SKUs confirmed, others need verification' } },
-      { value: 'no', label: { default: 'No — GTINs not confirmed or not registered' } },
+      { value: 'yes', label: { default: 'Yes, all GTINs verified in the GS1 registry' } },
+      { value: 'partial', label: { default: 'Partially, some SKUs confirmed, others need verification' } },
+      { value: 'no', label: { default: 'No, GTINs not confirmed or not registered' } },
     ],
   },
 
@@ -45,14 +45,14 @@ export const QUESTIONS = [
     retailers: ['walmart', 'costco', 'wholeFoods'],
     order: 2,
     text: {
-      walmart: 'Is your trade item hierarchy fully documented — each unit, inner pack, and case — with accurate dimensions and weights for Item 360?',
-      costco: 'Is your trade item hierarchy documented — each unit and case — with Costco\'s assigned item number?',
+      walmart: 'Is your trade item hierarchy fully documented (each unit, inner pack, and case) with accurate dimensions and weights for Item 360?',
+      costco: 'Is your trade item hierarchy documented (each unit and case) with Costco\'s assigned item number?',
       wholeFoods: 'Is your trade item hierarchy documented, with product spec sheets ready for the Whole Foods supplier portal?',
     },
     options: [
-      { value: 'yes', label: { default: 'Yes — complete and verified' } },
-      { value: 'partial', label: { default: 'Partial — mostly complete but gaps remain' } },
-      { value: 'no', label: { default: 'No — not yet documented' } },
+      { value: 'yes', label: { default: 'Yes, complete and verified' } },
+      { value: 'partial', label: { default: 'Partial, mostly complete but gaps remain' } },
+      { value: 'no', label: { default: 'No, not yet documented' } },
     ],
   },
 
@@ -64,12 +64,12 @@ export const QUESTIONS = [
     retailers: ['walmart'],
     order: 3,
     text: {
-      walmart: 'Are your Walmart Item 360 attributes complete in Retail Link — images, nutrition, allergens, e-commerce descriptions, and GDSN hierarchy data?',
+      walmart: 'Are your Walmart Item 360 attributes complete in Retail Link: images, nutrition, allergens, e-commerce descriptions, and GDSN hierarchy data?',
     },
     options: [
-      { value: 'yes', label: { walmart: 'Yes — Item 360 setup complete and approved' } },
-      { value: 'partial', label: { walmart: 'Partial — in progress, some attributes missing' } },
-      { value: 'no', label: { walmart: 'No — Item 360 not started or pending rejection' } },
+      { value: 'yes', label: { walmart: 'Yes, Item 360 setup complete and approved' } },
+      { value: 'partial', label: { walmart: 'Partial, in progress, some attributes missing' } },
+      { value: 'no', label: { walmart: 'No, Item 360 not started or pending rejection' } },
     ],
   },
 
@@ -85,12 +85,12 @@ export const QUESTIONS = [
     text: {
       walmart: 'Do you have an active 1WorldSync account and GDSN connection to Walmart\'s Item 360 system?',
       costco: 'Do you have an active 1WorldSync account and GDSN connection to Costco\'s data system?',
-      wholeFoods: 'Is your product data uploaded to the Whole Foods Supplier Portal — or do you have an active 1WorldSync account for syndication?',
+      wholeFoods: 'Is your product data uploaded to the Whole Foods Supplier Portal, or do you have an active 1WorldSync account for syndication?',
     },
     options: [
-      { value: 'yes', label: { default: 'Yes — active and connected' } },
-      { value: 'partial', label: { default: 'Partial — account exists but data incomplete or not connected' } },
-      { value: 'no', label: { default: 'No — no account or connection' } },
+      { value: 'yes', label: { default: 'Yes, active and connected' } },
+      { value: 'partial', label: { default: 'Partial, account exists but data incomplete or not connected' } },
+      { value: 'no', label: { default: 'No, no account or connection' } },
     ],
   },
 
@@ -104,12 +104,12 @@ export const QUESTIONS = [
     text: {
       walmart: 'Are all your launch SKUs fully syndicated with complete attributes in the Walmart GDSN system?',
       costco: 'Are all your launch SKUs fully syndicated to Costco\'s data system with complete attributes?',
-      wholeFoods: 'Are all required attributes — images, nutrition, allergens, ingredients, certifications — complete and uploaded for your launch SKUs?',
+      wholeFoods: 'Are all required attributes (images, nutrition, allergens, ingredients, certifications) complete and uploaded for your launch SKUs?',
     },
     options: [
-      { value: 'yes', label: { default: 'Yes — all launch SKUs complete' } },
-      { value: 'partial', label: { default: 'Partial — some SKUs syndicated, others in progress' } },
-      { value: 'no', label: { default: 'No — syndication not started for launch SKUs' } },
+      { value: 'yes', label: { default: 'Yes, all launch SKUs complete' } },
+      { value: 'partial', label: { default: 'Partial, some SKUs syndicated, others in progress' } },
+      { value: 'no', label: { default: 'No, syndication not started for launch SKUs' } },
     ],
   },
 
@@ -128,9 +128,9 @@ export const QUESTIONS = [
       wholeFoods: 'Can you receive Whole Foods 850 purchase orders and transmit ASNs and 810 invoices electronically?',
     },
     options: [
-      { value: 'yes', label: { default: 'Yes — fully capable and tested' } },
-      { value: 'partial', label: { default: 'Partial — in setup or testing, not yet live' } },
-      { value: 'no', label: { default: 'No — no EDI capability' } },
+      { value: 'yes', label: { default: 'Yes, fully capable and tested' } },
+      { value: 'partial', label: { default: 'Partial, in setup or testing, not yet live' } },
+      { value: 'no', label: { default: 'No, no EDI capability' } },
     ],
   },
 
@@ -142,14 +142,14 @@ export const QUESTIONS = [
     retailers: ['walmart', 'costco', 'wholeFoods'],
     order: 2,
     text: {
-      walmart: 'Are your ASNs transmitted and accepted by Walmart before the trailer gates at the DC — ideally within 30 minutes of carrier pickup?',
-      costco: 'Are your ASNs transmitted before your physical goods arrive at the Costco depot — typically 2–4 hours before pickup?',
+      walmart: 'Are your ASNs transmitted and accepted by Walmart before the trailer gates at the DC, ideally within 30 minutes of carrier pickup?',
+      costco: 'Are your ASNs transmitted before your physical goods arrive at the Costco depot, typically 2-4 hours before pickup?',
       wholeFoods: 'Are your ASNs transmitted before your physical goods arrive at the Whole Foods distribution center?',
     },
     options: [
-      { value: 'yes', label: { default: 'Yes — consistently meeting the timing requirement' } },
-      { value: 'partial', label: { default: 'Partial — timing is inconsistent or ASNs sometimes arrive late' } },
-      { value: 'no', label: { default: 'No — ASNs typically sent after goods arrive' } },
+      { value: 'yes', label: { default: 'Yes, consistently meeting the timing requirement' } },
+      { value: 'partial', label: { default: 'Partial, timing is inconsistent or ASNs sometimes arrive late' } },
+      { value: 'no', label: { default: 'No, ASNs typically sent after goods arrive' } },
     ],
   },
 
@@ -161,12 +161,12 @@ export const QUESTIONS = [
     retailers: ['walmart'],
     order: 3,
     text: {
-      walmart: 'Do your Walmart ASNs include FSMA 204 Key Data Elements — required for all food and beverage shipments as of August 2025?',
+      walmart: 'Do your Walmart ASNs include FSMA 204 Key Data Elements, required for all food and beverage shipments as of August 2025?',
     },
     options: [
-      { value: 'yes', label: { walmart: 'Yes — FSMA 204 KDEs included in every ASN' } },
-      { value: 'partial', label: { walmart: 'Partial — in progress, not consistently included' } },
-      { value: 'no', label: { walmart: 'No — ASNs do not include FSMA 204 KDEs' } },
+      { value: 'yes', label: { walmart: 'Yes, FSMA 204 KDEs included in every ASN' } },
+      { value: 'partial', label: { walmart: 'Partial, in progress, not consistently included' } },
+      { value: 'no', label: { walmart: 'No, ASNs do not include FSMA 204 KDEs' } },
     ],
   },
 
@@ -178,14 +178,14 @@ export const QUESTIONS = [
     retailers: ['walmart', 'costco', 'wholeFoods'],
     order: 4,
     text: {
-      walmart: 'Are your GS1-128 shipping labels with SSCC-18 barcodes compliant — 4"×6", correct data fields, and exactly matching your ASN?',
+      walmart: 'Are your GS1-128 shipping labels with SSCC-18 barcodes compliant: 4"×6", correct data fields, and exactly matching your ASN?',
       costco: 'Are your GS1-128 labels on two adjacent pallet sides, printed with thermal transfer (not direct thermal), with SSCC-18 matching your ASN?',
       wholeFoods: 'Are your GS1-128 shipping labels with SSCC-18 compliant and matching your ASN exactly?',
     },
     options: [
-      { value: 'yes', label: { default: 'Yes — compliant and tested' } },
-      { value: 'partial', label: { default: 'Partial — in progress or some gaps remain' } },
-      { value: 'no', label: { default: 'No — labels not compliant or not yet implemented' } },
+      { value: 'yes', label: { default: 'Yes, compliant and tested' } },
+      { value: 'partial', label: { default: 'Partial, in progress or some gaps remain' } },
+      { value: 'no', label: { default: 'No, labels not compliant or not yet implemented' } },
     ],
   },
 
@@ -200,32 +200,32 @@ export const QUESTIONS = [
     order: 1,
     text: {
       walmart: 'Does your delivery performance meet the Walmart OTIF targets that apply to you: on-time (90% arrival by MABD if prepaid, or 98% ready for pickup if collect) and 95% in-full per category?',
-      costco: 'Do you have a consistent documented history of on-time delivery within appointment windows — and can you produce that history for a Costco buyer?',
-      wholeFoods: 'Do you actively track your on-time delivery performance — and do you have documented history you can share with a Whole Foods buyer?',
+      costco: 'Do you have a consistent documented history of on-time delivery within appointment windows, and can you produce that history for a Costco buyer?',
+      wholeFoods: 'Do you actively track your on-time delivery performance, and do you have documented history you can share with a Whole Foods buyer?',
     },
     options: [
       {
         value: 'yes',
         label: {
-          walmart: 'Yes — consistently at or above the targets that apply to us',
-          costco: 'Yes — consistent history, documented and on file',
-          wholeFoods: 'Yes — we track OTIF and have documented history',
+          walmart: 'Yes, consistently at or above the targets that apply to us',
+          costco: 'Yes, consistent history, documented and on file',
+          wholeFoods: 'Yes, we track OTIF and have documented history',
         },
       },
       {
         value: 'partial',
         label: {
-          walmart: 'Partial — short on a target that applies to us, but within 5 points',
-          costco: 'Partial — mostly on-time but history is incomplete or inconsistent',
-          wholeFoods: 'Partial — we track it informally but documentation is limited',
+          walmart: 'Partial, short on a target that applies to us, but within 5 points',
+          costco: 'Partial, mostly on-time but history is incomplete or inconsistent',
+          wholeFoods: 'Partial, we track it informally but documentation is limited',
         },
       },
       {
         value: 'no',
         label: {
-          walmart: 'No — more than 5 points short on a target that applies to us, or we don\'t track them',
-          costco: 'No — delivery history is undocumented or shows consistent failures',
-          wholeFoods: 'No — we don\'t track on-time delivery performance',
+          walmart: 'No, more than 5 points short on a target that applies to us, or we don\'t track them',
+          costco: 'No, delivery history is undocumented or shows consistent failures',
+          wholeFoods: 'No, we don\'t track on-time delivery performance',
         },
       },
     ],
@@ -242,12 +242,12 @@ export const QUESTIONS = [
     retailers: ['costco'],
     order: 3,
     text: {
-      costco: 'Are your shipping labels printed with thermal transfer printing — not direct thermal?',
+      costco: 'Are your shipping labels printed with thermal transfer printing, not direct thermal?',
     },
     options: [
-      { value: 'yes', label: { costco: 'Yes — thermal transfer printing confirmed' } },
-      { value: 'no', label: { costco: 'No — using direct thermal or unsure of printing method' } },
-      { value: 'partial', label: { costco: 'Unsure — need to verify printing method with our label vendor' } },
+      { value: 'yes', label: { costco: 'Yes, thermal transfer printing confirmed' } },
+      { value: 'no', label: { costco: 'No, using direct thermal or unsure of printing method' } },
+      { value: 'partial', label: { costco: 'Unsure, need to verify printing method with our label vendor' } },
     ],
   },
 
@@ -261,14 +261,14 @@ export const QUESTIONS = [
     retailers: ['walmart', 'costco', 'wholeFoods'],
     order: 1,
     text: {
-      walmart: 'Have you built a full year-one Walmart cost model — including slotting fees, trade spend, 60–90 day payment terms, and chargeback reserves?',
-      costco: 'Have you modeled year-one Costco costs — including trade investment, club-pack production, 90-day payment terms, and chargeback reserves?',
-      wholeFoods: 'Have you modeled year-one Whole Foods costs — including slotting, demo requirements, trade spend, and 60-day payment terms?',
+      walmart: 'Have you built a full year-one Walmart cost model, including slotting fees, trade spend, 60-90 day payment terms, and chargeback reserves?',
+      costco: 'Have you modeled year-one Costco costs, including trade investment, club-pack production, 90-day payment terms, and chargeback reserves?',
+      wholeFoods: 'Have you modeled year-one Whole Foods costs, including slotting, demo requirements, trade spend, and 60-day payment terms?',
     },
     options: [
-      { value: 'yes', label: { default: 'Yes — full cost model built and reviewed' } },
-      { value: 'partial', label: { default: 'Partial — rough estimate but no full model' } },
-      { value: 'no', label: { default: 'No — costs not modeled' } },
+      { value: 'yes', label: { default: 'Yes, full cost model built and reviewed' } },
+      { value: 'partial', label: { default: 'Partial, rough estimate but no full model' } },
+      { value: 'no', label: { default: 'No, costs not modeled' } },
     ],
   },
 
@@ -280,12 +280,12 @@ export const QUESTIONS = [
     retailers: ['walmart', 'costco', 'wholeFoods'],
     order: 2,
     text: {
-      default: 'Do you have sufficient cash runway to cover the first 90 days of the launch — including initial production, slotting payments, and a chargeback buffer before your first payment lands?',
+      default: 'Do you have sufficient cash runway to cover the first 90 days of the launch, including initial production, slotting payments, and a chargeback buffer before your first payment lands?',
     },
     options: [
-      { value: 'yes', label: { default: 'Yes — runway confirmed with buffer' } },
-      { value: 'partial', label: { default: 'Partial — tight but manageable if nothing goes wrong' } },
-      { value: 'no', label: { default: 'No — cash position is a constraint' } },
+      { value: 'yes', label: { default: 'Yes, runway confirmed with buffer' } },
+      { value: 'partial', label: { default: 'Partial, tight but manageable if nothing goes wrong' } },
+      { value: 'no', label: { default: 'No, cash position is a constraint' } },
     ],
   },
 
@@ -300,13 +300,13 @@ export const QUESTIONS = [
     order: 1,
     text: {
       walmart: 'Has your co-packer confirmed in writing that they can produce your projected Walmart launch volume on the required timeline?',
-      costco: 'Has your co-packer confirmed capacity for your Costco club-pack configuration and launch volume — in writing?',
+      costco: 'Has your co-packer confirmed capacity for your Costco club-pack configuration and launch volume, in writing?',
       wholeFoods: 'Has your co-packer confirmed capacity for your projected Whole Foods launch volume on the required timeline?',
     },
     options: [
-      { value: 'yes', label: { default: 'Yes — confirmed in writing with production schedule' } },
-      { value: 'partial', label: { default: 'Partial — verbal confirmation but no written commitment' } },
-      { value: 'no', label: { default: 'No — capacity not confirmed' } },
+      { value: 'yes', label: { default: 'Yes, confirmed in writing with production schedule' } },
+      { value: 'partial', label: { default: 'Partial, verbal confirmation but no written commitment' } },
+      { value: 'no', label: { default: 'No, capacity not confirmed' } },
     ],
   },
 
@@ -318,12 +318,12 @@ export const QUESTIONS = [
     retailers: ['walmart', 'costco', 'wholeFoods'],
     order: 2,
     text: {
-      default: 'Is your production lead time compatible with the buyer\'s required first-ship date — with enough time for a production run, QC hold, and inbound transit?',
+      default: 'Is your production lead time compatible with the buyer\'s required first-ship date, with enough time for a production run, QC hold, and inbound transit?',
     },
     options: [
-      { value: 'yes', label: { default: 'Yes — lead time fits within the buyer\'s window' } },
-      { value: 'partial', label: { default: 'Tight — could work but leaves no margin for delays' } },
-      { value: 'no', label: { default: 'No — lead time exceeds the buyer\'s required window' } },
+      { value: 'yes', label: { default: 'Yes, lead time fits within the buyer\'s window' } },
+      { value: 'partial', label: { default: 'Tight, could work but leaves no margin for delays' } },
+      { value: 'no', label: { default: 'No, lead time exceeds the buyer\'s required window' } },
     ],
   },
 
@@ -341,9 +341,9 @@ export const QUESTIONS = [
       wholeFoods: 'Does your product contain any artificial colors, artificial flavors, or artificial preservatives?',
     },
     options: [
-      { value: 'no', label: { wholeFoods: 'No — product contains none of these ingredients' } },
-      { value: 'yes', label: { wholeFoods: 'Yes — product contains one or more prohibited ingredients' } },
-      { value: 'partial', label: { wholeFoods: 'Unsure — need to verify against the Whole Foods prohibited ingredient list' } },
+      { value: 'no', label: { wholeFoods: 'No, product contains none of these ingredients' } },
+      { value: 'yes', label: { wholeFoods: 'Yes, product contains one or more prohibited ingredients' } },
+      { value: 'partial', label: { wholeFoods: 'Unsure, need to verify against the Whole Foods prohibited ingredient list' } },
     ],
   },
 
@@ -358,9 +358,9 @@ export const QUESTIONS = [
       default: 'Is your FSMA Preventive Controls Qualified Individual (PCQI) documentation current, complete, and on file?',
     },
     options: [
-      { value: 'yes', label: { default: 'Yes — documentation current and on file' } },
-      { value: 'partial', label: { default: 'Partial — in progress or needs updating' } },
-      { value: 'no', label: { default: 'No — PCQI documentation not in place' } },
+      { value: 'yes', label: { default: 'Yes, documentation current and on file' } },
+      { value: 'partial', label: { default: 'Partial, in progress or needs updating' } },
+      { value: 'no', label: { default: 'No, PCQI documentation not in place' } },
     ],
   },
 
@@ -372,12 +372,12 @@ export const QUESTIONS = [
     retailers: ['wholeFoods'],
     order: 2,
     text: {
-      wholeFoods: 'Do you have a current GFSI-benchmarked food safety certification — SQF Level 2 or higher, BRCGS Food Safety, or equivalent?',
+      wholeFoods: 'Do you have a current GFSI-benchmarked food safety certification: SQF Level 2 or higher, BRCGS Food Safety, or equivalent?',
     },
     options: [
-      { value: 'yes', label: { wholeFoods: 'Yes — current certification, not expired' } },
-      { value: 'partial', label: { wholeFoods: 'Partial — certification in progress or recently expired' } },
-      { value: 'no', label: { wholeFoods: 'No — no GFSI certification' } },
+      { value: 'yes', label: { wholeFoods: 'Yes, current certification, not expired' } },
+      { value: 'partial', label: { wholeFoods: 'Partial, certification in progress or recently expired' } },
+      { value: 'no', label: { wholeFoods: 'No, no GFSI certification' } },
     ],
   },
 
@@ -392,9 +392,9 @@ export const QUESTIONS = [
       default: 'Are your allergen declarations consistent across your product label, spec sheet, GDSN data, and any supplier portal entries?',
     },
     options: [
-      { value: 'yes', label: { default: 'Yes — consistent across all touchpoints' } },
-      { value: 'partial', label: { default: 'Partial — minor discrepancies that need reconciliation' } },
-      { value: 'no', label: { default: 'No — inconsistencies exist' } },
+      { value: 'yes', label: { default: 'Yes, consistent across all touchpoints' } },
+      { value: 'partial', label: { default: 'Partial, minor discrepancies that need reconciliation' } },
+      { value: 'no', label: { default: 'No, inconsistencies exist' } },
     ],
   },
 
@@ -408,14 +408,14 @@ export const QUESTIONS = [
     retailers: ['walmart', 'costco', 'wholeFoods'],
     order: 1,
     text: {
-      walmart: 'Is there a named person on your team who owns the Walmart relationship day-to-day — handling portal issues, dispute windows, and buyer communications?',
-      costco: 'Is there a named person on your team who owns the Costco relationship day-to-day — including EDI monitoring, appointment compliance, and buyer follow-up?',
-      wholeFoods: 'Is there a named person on your team who owns the Whole Foods relationship day-to-day — handling portal updates, compliance documentation, and buyer communication?',
+      walmart: 'Is there a named person on your team who owns the Walmart relationship day-to-day, handling portal issues, dispute windows, and buyer communications?',
+      costco: 'Is there a named person on your team who owns the Costco relationship day-to-day, including EDI monitoring, appointment compliance, and buyer follow-up?',
+      wholeFoods: 'Is there a named person on your team who owns the Whole Foods relationship day-to-day, handling portal updates, compliance documentation, and buyer communication?',
     },
     options: [
-      { value: 'yes', label: { default: 'Yes — named owner, clear responsibility' } },
-      { value: 'partial', label: { default: 'Partial — someone is handling it, but responsibility is shared or unclear' } },
-      { value: 'no', label: { default: 'No — no one owns this relationship yet' } },
+      { value: 'yes', label: { default: 'Yes, named owner, clear responsibility' } },
+      { value: 'partial', label: { default: 'Partial, someone is handling it, but responsibility is shared or unclear' } },
+      { value: 'no', label: { default: 'No, no one owns this relationship yet' } },
     ],
   },
 
@@ -427,14 +427,14 @@ export const QUESTIONS = [
     retailers: ['walmart', 'costco', 'wholeFoods'],
     order: 2,
     text: {
-      walmart: 'Do you have a defined process for identifying, reviewing, and disputing Walmart chargebacks and deductions in Retail Link — with a response SLA?',
-      costco: 'Do you have a defined process for tracking and disputing Costco chargebacks and deductions — with a clear response SLA?',
+      walmart: 'Do you have a defined process for identifying, reviewing, and disputing Walmart chargebacks and deductions in Retail Link, with a response SLA?',
+      costco: 'Do you have a defined process for tracking and disputing Costco chargebacks and deductions, with a clear response SLA?',
       wholeFoods: 'Do you have a defined process for tracking and disputing Whole Foods deductions and compliance issues?',
     },
     options: [
-      { value: 'yes', label: { default: 'Yes — defined process with SLA' } },
-      { value: 'partial', label: { default: 'Partial — informal process, no SLA' } },
-      { value: 'no', label: { default: 'No — no defined chargeback process' } },
+      { value: 'yes', label: { default: 'Yes, defined process with SLA' } },
+      { value: 'partial', label: { default: 'Partial, informal process, no SLA' } },
+      { value: 'no', label: { default: 'No, no defined chargeback process' } },
     ],
   },
 ];

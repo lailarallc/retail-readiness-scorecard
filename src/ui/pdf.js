@@ -192,7 +192,7 @@ function drawVerdictCallout(doc, y, scores, retailer, brandName) {
   // Label
   sans(doc, 7.5);
   color(doc, [154, 154, 154]);
-  doc.text('LAILARA — RETAIL READINESS SCORECARD', MARGIN_L + INNER_PAD, iy);
+  doc.text('LAILARA: RETAIL READINESS SCORECARD', MARGIN_L + INNER_PAD, iy);
   iy += 6;
 
   // Verdict
@@ -231,7 +231,7 @@ function drawVerdictCallout(doc, y, scores, retailer, brandName) {
   } else {
     sans(doc, 8, 'bold');
     color(doc, COLOR_WHITE);
-    doc.text('Every dimension meets the bar — no blocking gaps.', MARGIN_L + INNER_PAD, iy);
+    doc.text('Every dimension meets the bar: no blocking gaps.', MARGIN_L + INNER_PAD, iy);
   }
   iy += 4;
 
@@ -295,7 +295,7 @@ function drawBarChart(doc, y, scores) {
   // Chart footnote
   sans(doc, 7);
   color(doc, COLOR_TEXT_SEC);
-  doc.text('Red <30 · Yellow 30–69 · Green ≥70. Fulfillment thresholds vary by retailer. Scores weighted by requirement severity.', MARGIN_L, y);
+  doc.text('Red <30 · Yellow 30-69 · Green ≥70. Fulfillment thresholds vary by retailer. Scores weighted by requirement severity.', MARGIN_L, y);
   y += 3.5;
   doc.text('A launch-blocking gap (missing FSMA 204, non-compliant labels, direct-thermal) can cap or fail a dimension regardless of score.', MARGIN_L, y);
   y += 7;
@@ -455,7 +455,7 @@ function drawNextSteps(doc, y, scores, retailerLabel, brandName) {
   } else {
     sans(doc, 9);
     color(doc, COLOR_TEXT_SEC);
-    y = wrappedText(doc, 'No Red dimensions — ahead of most brands at this stage. Visit lailarallc.com/contact to discuss tightening the remaining gaps.', MARGIN_L, y, CONTENT_W, 4.5);
+    y = wrappedText(doc, 'No Red dimensions: ahead of most brands at this stage. Visit lailarallc.com/contact to discuss tightening the remaining gaps.', MARGIN_L, y, CONTENT_W, 4.5);
   }
 
   y += 6;

@@ -50,8 +50,8 @@ const REMEDIATION_WEEKS = {
 // "no gaps" for a non-green status — that would contradict the badge on an
 // executive's report.
 export function emptyStateText(status) {
-  if (status === 'red') return 'Below the minimum threshold for this retailer — treat as launch-blocking.';
-  if (status === 'yellow') return 'Partial readiness — close this gap before the buyer call.';
+  if (status === 'red') return 'Below the minimum threshold for this retailer. Treat as launch-blocking.';
+  if (status === 'yellow') return 'Partial readiness. Close this gap before the buyer call.';
   return 'No critical gaps identified.';
 }
 
@@ -81,22 +81,22 @@ function scoreProductData(answers, retailer) {
     return {
       status: 'red',
       numeric: 0,
-      findings: ['GTINs not valid or not in GS1 registry — item setup cannot proceed at any major retailer.'],
+      findings: ['GTINs not valid or not in GS1 registry: item setup cannot proceed at any major retailer.'],
       fix: 'Validate all GTINs in GS1 registry; complete trade item hierarchy documentation.',
       hardGate: false,
     };
   }
   earned += a.pd_gtin_valid === 'yes' ? 3 : a.pd_gtin_valid === 'partial' ? 1 : 0;
-  if (a.pd_gtin_valid === 'partial') findings.push('Some GTINs still unverified in the GS1 registry — confirm all before item setup.');
+  if (a.pd_gtin_valid === 'partial') findings.push('Some GTINs still unverified in the GS1 registry. Confirm all before item setup.');
 
   earned += a.pd_hierarchy === 'yes' ? 2 : a.pd_hierarchy === 'partial' ? 1 : 0;
-  if (a.pd_hierarchy === 'partial') findings.push('Trade item hierarchy partially documented — complete each/inner/case before submission.');
+  if (a.pd_hierarchy === 'partial') findings.push('Trade item hierarchy partially documented. Complete each/inner/case before submission.');
   if (a.pd_hierarchy === 'no') findings.push('Trade item hierarchy (each/inner/case) not documented.');
 
   if (retailer === 'walmart') {
     earned += a.pd_item360 === 'yes' ? 2 : a.pd_item360 === 'partial' ? 1 : 0;
-    if (a.pd_item360 === 'partial') findings.push('Item 360 attributes in progress — some fields missing; item setup not yet approvable.');
-    if (a.pd_item360 === 'no') findings.push('Item 360 / GDSN attributes incomplete — Walmart item setup will be rejected.');
+    if (a.pd_item360 === 'partial') findings.push('Item 360 attributes in progress: some fields missing; item setup not yet approvable.');
+    if (a.pd_item360 === 'no') findings.push('Item 360 / GDSN attributes incomplete. Walmart item setup will be rejected.');
   }
 
   const numeric = Math.round((earned / maxPoints) * 100);
@@ -120,7 +120,7 @@ function scoreSyndication(answers) {
     return {
       status: 'red',
       numeric: 0,
-      findings: ['No 1WorldSync/GDSN account — product data cannot be syndicated to retailer systems.'],
+      findings: ['No 1WorldSync/GDSN account. Product data cannot be syndicated to retailer systems.'],
       fix: 'Establish 1WorldSync account; complete GDSN syndication for all launch SKUs.',
     };
   }
@@ -150,7 +150,7 @@ function scoreEdi(answers, retailer) {
     return {
       status: 'red',
       numeric: 0,
-      findings: ['No EDI capability — cannot receive purchase orders or send ASNs electronically. Retailer cannot process shipments.'],
+      findings: ['No EDI capability: cannot receive purchase orders or send ASNs electronically. Retailer cannot process shipments.'],
       fix: 'Implement EDI capability (850/855/856/810/997); ensure ASN transmitted before gate-in; add FSMA 204 KDEs (Walmart).',
     };
   }
@@ -161,27 +161,27 @@ function scoreEdi(answers, retailer) {
     return {
       status: 'red',
       numeric: 0,
-      findings: ['ASN does not include FSMA 204 Key Data Elements — legally required for all Walmart food/beverage shipments since August 2025. Walmart will not accept the ASN.'],
+      findings: ['ASN does not include FSMA 204 Key Data Elements, legally required for all Walmart food/beverage shipments since August 2025. Walmart will not accept the ASN.'],
       fix: 'Add FSMA 204 Key Data Elements to every ASN before shipping to Walmart.',
     };
   }
 
   const maxPoints = retailer === 'walmart' ? 9 : 7;
   let earned = a.edi_asn_capable === 'yes' ? 3 : 1;
-  if (a.edi_asn_capable === 'partial') findings.push('EDI in setup or testing but not yet live — cannot transact until certified.');
+  if (a.edi_asn_capable === 'partial') findings.push('EDI in setup or testing but not yet live: cannot transact until certified.');
 
   earned += a.edi_asn_timing === 'yes' ? 2 : a.edi_asn_timing === 'partial' ? 1 : 0;
-  if (a.edi_asn_timing === 'partial') findings.push('ASN timing inconsistent — late ASNs will draw OTIF fines.');
-  if (a.edi_asn_timing === 'no') findings.push('ASN not transmitted before gate-in/physical arrival — OTIF fines and receiving failures likely.');
+  if (a.edi_asn_timing === 'partial') findings.push('ASN timing inconsistent. Late ASNs will draw OTIF fines.');
+  if (a.edi_asn_timing === 'no') findings.push('ASN not transmitted before gate-in/physical arrival. OTIF fines and receiving failures likely.');
 
   if (retailer === 'walmart') {
     earned += a.edi_fsma204 === 'yes' ? 2 : a.edi_fsma204 === 'partial' ? 1 : 0;
-    if (a.edi_fsma204 === 'partial') findings.push('FSMA 204 Key Data Elements not consistently included — required on every Walmart food/beverage ASN as of August 2025.');
-    if (a.edi_fsma204 === 'no') findings.push('ASN does not include FSMA 204 Key Data Elements — required for all Walmart food/beverage shipments as of August 2025.');
+    if (a.edi_fsma204 === 'partial') findings.push('FSMA 204 Key Data Elements not consistently included: required on every Walmart food/beverage ASN as of August 2025.');
+    if (a.edi_fsma204 === 'no') findings.push('ASN does not include FSMA 204 Key Data Elements, required for all Walmart food/beverage shipments as of August 2025.');
   }
 
   earned += a.edi_label_compliant === 'yes' ? 2 : a.edi_label_compliant === 'partial' ? 1 : 0;
-  if (a.edi_label_compliant === 'partial') findings.push('GS1-128 / SSCC-18 label compliance has gaps — reconcile labels to the ASN before shipping.');
+  if (a.edi_label_compliant === 'partial') findings.push('GS1-128 / SSCC-18 label compliance has gaps. Reconcile labels to the ASN before shipping.');
   if (a.edi_label_compliant === 'no') findings.push('GS1-128 / SSCC-18 labels non-compliant or not matching ASN.');
 
   const numeric = Math.round((earned / maxPoints) * 100);
@@ -203,8 +203,8 @@ function scoreFulfillment(answers, retailer) {
   const retailerData = RETAILERS[retailer];
 
   const otifFindingByRetailer = {
-    walmart: 'Delivery performance misses the Walmart OTIF targets that apply to you (on-time 90% if prepaid or 98% ready for pickup if collect; 95% in-full) — subject to a 3% of COGS penalty on non-compliant cases.',
-    costco: 'Delivery appointment compliance inconsistent — chargeback exposure.',
+    walmart: 'Delivery performance misses the Walmart OTIF targets that apply to you (on-time 90% if prepaid or 98% ready for pickup if collect; 95% in-full), subject to a 3% of COGS penalty on non-compliant cases.',
+    costco: 'Delivery appointment compliance inconsistent: chargeback exposure.',
     wholeFoods: 'On-time delivery history inconsistent or undocumented.',
   };
 
@@ -221,7 +221,7 @@ function scoreFulfillment(answers, retailer) {
   // Max points: Costco = 4 (otif 3 + thermal 1), others = 3 (otif only).
   const otifPartialFindingByRetailer = {
     walmart: 'Within 5 points of the Walmart OTIF targets that apply to you (on-time 90% if prepaid or 98% ready for pickup if collect; 95% in-full) but short on at least one; expect OTIF fines until resolved.',
-    costco: 'Delivery history incomplete or inconsistent — a Costco buyer will ask to see it.',
+    costco: 'Delivery history incomplete or inconsistent. A Costco buyer will ask to see it.',
     wholeFoods: 'On-time delivery tracked informally; documentation is limited.',
   };
 
@@ -233,8 +233,8 @@ function scoreFulfillment(answers, retailer) {
 
   if (retailer === 'costco') {
     earned += a.ff_thermal === 'yes' ? 1 : 0;
-    if (a.ff_thermal === 'partial') findings.push('Printing method unverified — confirm thermal transfer (not direct thermal) with your label vendor.');
-    if (a.ff_thermal === 'no') findings.push('Direct thermal printing used — Costco requires thermal transfer. Labels will be rejected at depot.');
+    if (a.ff_thermal === 'partial') findings.push('Printing method unverified. Confirm thermal transfer (not direct thermal) with your label vendor.');
+    if (a.ff_thermal === 'no') findings.push('Direct thermal printing used. Costco requires thermal transfer. Labels will be rejected at depot.');
   }
 
   const numeric = Math.round((earned / maxPoints) * 100);
@@ -261,15 +261,15 @@ function scoreFinancial(answers) {
     return {
       status: 'red',
       numeric: 0,
-      findings: ['Year-one retailer costs (slotting, trade spend, payment terms) not modeled — cash exposure unknown.'],
+      findings: ['Year-one retailer costs (slotting, trade spend, payment terms) not modeled: cash exposure unknown.'],
       fix: 'Model full year-one cost structure; confirm 90-day cash position including chargeback reserve.',
     };
   }
 
   let earned = a.fin_cost_modeled === 'yes' ? 3 : 1;
-  if (a.fin_cost_modeled === 'partial') findings.push('Year-one costs estimated but not fully modeled — cash exposure not yet quantified.');
+  if (a.fin_cost_modeled === 'partial') findings.push('Year-one costs estimated but not fully modeled: cash exposure not yet quantified.');
   earned += a.fin_cash_runway === 'yes' ? 2 : a.fin_cash_runway === 'partial' ? 1 : 0;
-  if (a.fin_cash_runway === 'partial') findings.push('Cash runway is tight — little buffer if the launch slips or chargebacks spike.');
+  if (a.fin_cash_runway === 'partial') findings.push('Cash runway is tight: little buffer if the launch slips or chargebacks spike.');
   if (a.fin_cash_runway === 'no') findings.push('Cash runway insufficient for first 90 days including chargeback buffer.');
 
   const numeric = Math.round((earned / 5) * 100);
@@ -291,7 +291,7 @@ function scoreProduction(answers) {
     return {
       status: 'red',
       numeric: 0,
-      findings: ['Co-packer capacity not confirmed for launch volume — supply risk is high.'],
+      findings: ['Co-packer capacity not confirmed for launch volume: supply risk is high.'],
       fix: 'Confirm co-packer capacity in writing; align production schedule with buyer delivery window.',
     };
   }
@@ -299,7 +299,7 @@ function scoreProduction(answers) {
   let earned = a.prod_capacity_confirmed === 'yes' ? 3 : 1;
   if (a.prod_capacity_confirmed === 'partial') findings.push('Co-packer capacity indicated verbally but not confirmed in writing.');
   earned += a.prod_lead_time === 'yes' ? 2 : a.prod_lead_time === 'partial' ? 1 : 0;
-  if (a.prod_lead_time === 'partial') findings.push('Lead time leaves no margin — any delay risks missing the buyer\'s first-ship date.');
+  if (a.prod_lead_time === 'partial') findings.push('Lead time leaves no margin: any delay risks missing the buyer\'s first-ship date.');
   if (a.prod_lead_time === 'no') findings.push('Production lead time exceeds buyer\'s timeline window.');
 
   const numeric = Math.round((earned / 5) * 100);
@@ -324,7 +324,7 @@ function scoreCompliance(answers, retailer) {
       numeric: 0,
       hardGate: true,
       findings: [
-        'Product contains prohibited ingredients (artificial colors, flavors, or preservatives) — hard rejection by Whole Foods regardless of all other scores. Must reformulate before any WFM conversation.',
+        'Product contains prohibited ingredients (artificial colors, flavors, or preservatives): hard rejection by Whole Foods regardless of all other scores. Must reformulate before any WFM conversation.',
       ],
       fix: 'Reformulate to remove all prohibited ingredients per Whole Foods prohibited ingredient list.',
     };
@@ -336,7 +336,7 @@ function scoreCompliance(answers, retailer) {
   // FSMA PCQI (all retailers)
   earned += a.comp_fsma_pcqi === 'yes' ? 3 : a.comp_fsma_pcqi === 'partial' ? 1 : 0;
   if (a.comp_fsma_pcqi === 'partial') findings.push('FSMA PCQI documentation in progress or needs updating.');
-  if (a.comp_fsma_pcqi === 'no') findings.push('FSMA PCQI documentation not current — regulatory compliance gap.');
+  if (a.comp_fsma_pcqi === 'no') findings.push('FSMA PCQI documentation not current: regulatory compliance gap.');
 
   // GFSI cert (Whole Foods only — hard gate if missing)
   if (retailer === 'wholeFoods') {
@@ -346,13 +346,13 @@ function scoreCompliance(answers, retailer) {
         numeric: 0,
         hardGate: true,
         findings: [
-          'GFSI/SQF/BRCGS certification missing or expired — required for Whole Foods. Hard rejection regardless of other scores.',
+          'GFSI/SQF/BRCGS certification missing or expired: required for Whole Foods. Hard rejection regardless of other scores.',
         ],
         fix: 'Pursue GFSI-benchmarked certification (SQF, BRCGS, or equivalent); update FSMA PCQI documentation; verify allergen consistency.',
       };
     }
     earned += a.comp_gfsi_cert === 'yes' ? 3 : a.comp_gfsi_cert === 'partial' ? 1 : 0;
-    if (a.comp_gfsi_cert === 'partial') findings.push('GFSI certification in progress or recently expired — Whole Foods requires it current before launch.');
+    if (a.comp_gfsi_cert === 'partial') findings.push('GFSI certification in progress or recently expired. Whole Foods requires it current before launch.');
   }
 
   // Allergens (all retailers)
@@ -379,16 +379,16 @@ function scoreTeam(answers) {
     return {
       status: 'red',
       numeric: 0,
-      findings: ['No named person owns day-to-day retailer relationship — critical communications will fall through.'],
+      findings: ['No named person owns day-to-day retailer relationship: critical communications will fall through.'],
       fix: 'Assign a named retailer owner; create chargeback dispute process and response SLA.',
     };
   }
 
   let earned = a.team_owner === 'yes' ? 3 : 1;
-  if (a.team_owner === 'partial') findings.push('Retailer relationship ownership is shared or unclear — accountability gap.');
+  if (a.team_owner === 'partial') findings.push('Retailer relationship ownership is shared or unclear: accountability gap.');
   earned += a.team_chargeback_process === 'yes' ? 2 : a.team_chargeback_process === 'partial' ? 1 : 0;
-  if (a.team_chargeback_process === 'partial') findings.push('Chargeback handling is informal with no response SLA — deductions will slip.');
-  if (a.team_chargeback_process === 'no') findings.push('No defined process for chargebacks and deductions — deduction dollars will be lost.');
+  if (a.team_chargeback_process === 'partial') findings.push('Chargeback handling is informal with no response SLA: deductions will slip.');
+  if (a.team_chargeback_process === 'no') findings.push('No defined process for chargebacks and deductions: deduction dollars will be lost.');
 
   const numeric = Math.round((earned / 5) * 100);
   return {
@@ -495,7 +495,7 @@ export function getOverallVerdict(scores, retailer) {
         sumMax += maxWeeks;
       }
     }
-    timeline = `Estimated ${sumMin}–${sumMax} weeks to close these gaps.`;
+    timeline = `Estimated ${sumMin}-${sumMax} weeks to close these gaps.`;
   }
 
   return { verdict, timeline, overallStatus };
